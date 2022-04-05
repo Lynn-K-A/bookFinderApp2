@@ -1,16 +1,16 @@
-const list = document.getElementById("resultsList");
-const url = 'https://www.googleapis.com/books/v1/volumes';
-const queryParam = '?q=';
-const apiKey = 'AIzaSyDHCVvn21hvUh7qg-UF6bl5k9rW4xOVpys';
-const radios = document.getElementsByName("search-choice");
-const selected = Array.from(radios).find(radio => radio.checked);
+const LIST = document.getElementById("resultsList");
+const URL = 'https://www.googleapis.com/books/v1/volumes?q=';
+const API_KEY = 'AIzaSyDHCVvn21hvUh7qg-UF6bl5k9rW4xOVpys';
+const RADIOS = document.getElementsByName("search-choice");
+const selected = Array.from(RADIOS).find(radio => radio.checked);
 const lookFor = `+${selected.value}&key=`;
+const SEARCH_FIELD_ELEMENT = document.getElementById('search');
+const SEARCH_BTN = document.getElementById('submit-btn');
 
 
 const searchBook = (query) => {
   query = query.replace(' ','%20');
-  const endpoint = `${url}${queryParam}${query}${lookFor}${apiKey}`; 
-  console.log(endpoint);
+  const endpoint = `${URL}${query}${lookFor}${API_KEY}`; 
 
   fetch(endpoint)
   .then(async response => {
@@ -36,7 +36,7 @@ const searchBook = (query) => {
 
 
 const renderResults = (results) => {
-  list.innerHTML = "";
+ LIST.innerHTML = "";
   results.forEach(result => {
     makeCards(result);
   });
@@ -45,7 +45,7 @@ const renderResults = (results) => {
 const makeCards = (result) => {
   const element = document.createElement("li");
   element.classList.add("list-element");
-  list.appendChild(element);
+  LIST.appendChild(element);
   const bookDiv = document.createElement("div")
   element.appendChild(bookDiv);
   bookDiv.classList.add("book-div");
@@ -65,7 +65,7 @@ const makeCards = (result) => {
   authorName.textContent = `Author/Authors: ${result.volumeInfo.authors}`;
   const showMoreBtn = document.createElement("button");
   showMoreBtn.type = "button";
-  showMoreBtn.classList.add("show-more-btn")
+  showMoreBtn.classList.add("SHOW_MORE_BTN")
   showMoreBtn.textContent = "Show More";
   bookInfoDiv.appendChild(showMoreBtn);
   showMoreBtn.addEventListener('click', () => {
@@ -74,23 +74,23 @@ const makeCards = (result) => {
   });
 }
 
+
 window.onload = () => {
-  const searchFieldElement = document.getElementById('search');
-  const searchBtn = document.getElementById('submit-btn');
   function handleChange() {
     
-      if (searchFieldElement.value.trim().length === 0) {
+      if (SEARCH_FIELD_ELEMENT.value.trim().length === 0) {
         return;
       }
     
-      const timeout = setTimeout(()=> {
-        searchBook(searchFieldElement.value);
+      setTimeout(()=> {
+        searchBook(SEARCH_FIELD_ELEMENT.value);
       }, 0) 
     };
     
-  searchBtn.addEventListener('click', (e) => {
+  SEARCH_BTN.addEventListener('click', (e) => {
     handleChange();
   });
   renderResults(JSON.parse(localStorage.getItem('results')));
   console.log(renderResults(JSON.parse(localStorage.getItem('results'))));
-}
+};
+

@@ -24,9 +24,12 @@
     </form>
     
     <div id="responseField">
-        <ul id="resultsList">
-        </ul>
+        <ul id="resultsList"></ul>
     </div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js">
+        document.getElementById("show-more-btn").addEventListener('click', () =>{
+console.log('test');
+        });
+    </script>
 </body>
 </html>
