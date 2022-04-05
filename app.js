@@ -7,8 +7,6 @@ const selected = Array.from(radios).find(radio => radio.checked);
 const lookFor = `+${selected.value}&key=`;
 
 
-
-
 const searchBook = (query) => {
   query = query.replace(' ','%20');
   const endpoint = `${url}${queryParam}${query}${lookFor}${apiKey}`; 
@@ -28,12 +26,14 @@ const searchBook = (query) => {
   })
   .then(jsonData => {
     const results = jsonData.items.map((x) => x);
+    localStorage.setItem("results", JSON.stringify(results));
     renderResults(results);
   })
   .catch(error => {
     console.log(`Render Error: ${error}`);
   });
 }
+
 
 const renderResults = (results) => {
   list.innerHTML = "";
@@ -91,4 +91,6 @@ window.onload = () => {
   searchBtn.addEventListener('click', (e) => {
     handleChange();
   });
+  renderResults(JSON.parse(localStorage.getItem('results')));
+  console.log(renderResults(JSON.parse(localStorage.getItem('results'))));
 }
