@@ -8,4 +8,4 @@ Style.css
 
 App.js
 
-https://lynn-k-a.github.io/bookFinderApp2/
+https://lynn-k-a.github.io/bookFinderApp2/Index.html
