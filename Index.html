@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/style.css">
     <title>Book Finder App</title>
 </head>
 <body>
@@ -15,11 +15,11 @@
         <button id="submit-btn" type="button"><i class="fa fa-search"> Search </i></button><br>
         <span class="search-question">Search By:</span>
         <div class='radio-group'>
-            <input class="radio-search" type="radio" name="search-choice" value="intitle" checked><label for="r1">By Title</label>
-            <input class="radio-search" type="radio" name="search-choice" value="inauthor"><label for="r2"></label>By Author</label>
-            <input class="radio-search" type="radio" name="search-choice" value="inpublisher"><label for="r3"></label>By Publisher</label>
-            <input class="radio-search" type="radio" name="search-choice" value="subject"><label for="r4"></label>By Subject</label>
-            <input class="radio-search" type="radio" name="search-choice" value="isbn"><label for="r5"></label>By ISBN</label>
+            <input  class="radio-search" type="radio" name="search-choice" value="intitle" checked><label for="r1">By Title</label>
+            <input  class="radio-search" type="radio" name="search-choice" value="inauthor"><label for="r2"></label>By Author</label>
+            <input  class="radio-search" type="radio" name="search-choice" value="inpublisher"><label for="r3"></label>By Publisher</label>
+            <input  class="radio-search" type="radio" name="search-choice" value="subject"><label for="r4"></label>By Subject</label>
+            <input  class="radio-search" type="radio" name="search-choice" value="isbn"><label for="r5"></label>By ISBN</label>
         </div>
     </form>
     
@@ -27,6 +27,11 @@
         <ul id="resultsList">
         </ul>
     </div>
+<<<<<<< Updated upstream
     <script src="app.js"></script>
+=======
+    <script type="module" src="src/app.js">
+    </script>
+>>>>>>> Stashed changes
 </body>
 </html>
